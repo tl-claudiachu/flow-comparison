@@ -1372,8 +1372,8 @@
             });
         });
 
-        // Internal Links (navigate between tabs)
-        document.querySelectorAll('.internal-link').forEach(link => {
+        // Internal Links (navigate between tabs) - only for links with data-target
+        document.querySelectorAll('.internal-link[data-target]').forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
                 navigateToTab(link.dataset.target);
