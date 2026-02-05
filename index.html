@@ -48,6 +48,106 @@
             line-height: 1.6;
         }
 
+        /* Password Protection */
+        .password-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--nav-bg) 0%, var(--gray-950) 100%);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .password-overlay.hidden {
+            display: none;
+        }
+
+        .password-box {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .password-box h2 {
+            color: var(--navy);
+            margin-bottom: 8px;
+            font-size: 1.5rem;
+        }
+
+        .password-box p {
+            color: var(--gray-600);
+            margin-bottom: 24px;
+            font-size: 0.9rem;
+        }
+
+        .password-input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid var(--gray-200);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            margin-bottom: 16px;
+            transition: border-color 0.2s;
+        }
+
+        .password-input:focus {
+            outline: none;
+            border-color: var(--navy);
+        }
+
+        .password-input.error {
+            border-color: var(--red);
+            animation: shake 0.3s;
+        }
+
+        .password-submit {
+            width: 100%;
+            padding: 14px 24px;
+            background: var(--navy);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-family: inherit;
+        }
+
+        .password-submit:hover {
+            background: var(--blue);
+        }
+
+        .password-error {
+            color: var(--red);
+            font-size: 0.85rem;
+            margin-top: 12px;
+            display: none;
+        }
+
+        .password-error.show {
+            display: block;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-8px); }
+            75% { transform: translateX(8px); }
+        }
+
+        .content-hidden {
+            display: none !important;
+        }
+
         /* Header */
         .header {
             background: linear-gradient(135deg, var(--nav-bg) 0%, var(--gray-950) 100%);
@@ -748,14 +848,24 @@
         }
     </style>
 </head>
-</head>
 <body>
-    <header class="header">
+    <!-- Password Protection Overlay -->
+    <div id="passwordOverlay" class="password-overlay">
+        <div class="password-box">
+            <h2>🔐 存取驗證</h2>
+            <p>請輸入密碼以檢視此頁面</p>
+            <input type="password" id="passwordInput" class="password-input" placeholder="請輸入密碼" autocomplete="off">
+            <button id="passwordSubmit" class="password-submit">確認</button>
+            <div id="passwordError" class="password-error">密碼錯誤，請重新輸入</div>
+        </div>
+    </div>
+
+    <header class="header content-protected">
         <h1>交易匯入流程｜新舊版比對</h1>
         <p>UI/UX 改版差異說明 — 供 RD 開發參考</p>
     </header>
 
-    <nav class="nav">
+    <nav class="nav content-protected">
         <div class="nav-inner">
             <button class="nav-btn active" data-target="flow-1">上傳明細</button>
             <button class="nav-btn" data-target="flow-2">建立單筆交易</button>
@@ -766,7 +876,7 @@
         </div>
     </nav>
 
-    <main class="main">
+    <main class="main content-protected">
         <!-- ========== 流程 1：使用者上傳明細 ========== -->
         <section id="flow-1" class="flow-section active">
             <div class="description-card">
@@ -1127,7 +1237,7 @@
     </footer>
 
     <!-- Image Modal -->
-    <div id="image-modal" class="modal">
+    <div id="image-modal" class="modal content-protected">
         <div class="modal-content">
             <span class="modal-close"></span>
             <img id="modal-image" src="" alt="">
@@ -1135,6 +1245,60 @@
     </div>
 
     <script>
+        // Password Protection
+        (function() {
+            const CORRECT_PASSWORD = 'nextrek2025';  // 設定密碼
+            const STORAGE_KEY = 'flow_comparison_auth';
+
+            const overlay = document.getElementById('passwordOverlay');
+            const input = document.getElementById('passwordInput');
+            const submitBtn = document.getElementById('passwordSubmit');
+            const errorMsg = document.getElementById('passwordError');
+            const protectedElements = document.querySelectorAll('.content-protected');
+
+            // Check if already authenticated
+            if (sessionStorage.getItem(STORAGE_KEY) === 'true') {
+                unlockContent();
+            } else {
+                lockContent();
+            }
+
+            function lockContent() {
+                overlay.classList.remove('hidden');
+                protectedElements.forEach(el => el.classList.add('content-hidden'));
+            }
+
+            function unlockContent() {
+                overlay.classList.add('hidden');
+                protectedElements.forEach(el => el.classList.remove('content-hidden'));
+                sessionStorage.setItem(STORAGE_KEY, 'true');
+            }
+
+            function validatePassword() {
+                if (input.value === CORRECT_PASSWORD) {
+                    unlockContent();
+                } else {
+                    input.classList.add('error');
+                    errorMsg.classList.add('show');
+                    setTimeout(() => {
+                        input.classList.remove('error');
+                    }, 300);
+                }
+            }
+
+            submitBtn.addEventListener('click', validatePassword);
+            input.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    validatePassword();
+                }
+            });
+
+            // Clear error when typing
+            input.addEventListener('input', function() {
+                errorMsg.classList.remove('show');
+            });
+        })();
+
         // Tab Navigation
         function navigateToTab(targetId) {
             // Update active button
