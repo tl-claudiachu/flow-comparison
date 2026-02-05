@@ -867,7 +867,8 @@
 
     <nav class="nav content-protected">
         <div class="nav-inner">
-            <button class="nav-btn active" data-target="flow-1">上傳明細</button>
+            <button class="nav-btn active" data-target="flow-0">交易匯入總覽頁</button>
+            <button class="nav-btn" data-target="flow-1">上傳明細</button>
             <button class="nav-btn" data-target="flow-2">建立單筆交易</button>
             <button class="nav-btn" data-target="flow-3">將多筆資料一次建立成交易</button>
             <button class="nav-btn" data-target="flow-4">多筆資料批次套用欄位內容，(包含同時選擇收款及付款資料情境)</button>
@@ -877,8 +878,58 @@
     </nav>
 
     <main class="main content-protected">
+        <!-- ========== 流程 0：交易匯入總覽頁 ========== -->
+        <section id="flow-0" class="flow-section active">
+            <div class="description-card">
+                <h2>交易匯入總覽頁</h2>
+                <div class="changes-list">
+                    <div class="change-item added">
+                        <span class="change-tag added">新增</span>
+                        <span class="change-text">供使用者選擇資金帳戶，並上傳相關帳務明細的入口頁面</span>
+                    </div>
+                    <div class="change-item modified">
+                        <span class="change-tag modified">功能</span>
+                        <span class="change-text">流程包含：<br>
+1. 隱藏資金帳戶暫存區<br>
+2. 將已隱藏的暫存區取消隱藏</span>
+                    </div>
+                    <div class="change-item modified">
+                        <span class="change-tag modified">參考</span>
+                        <span class="change-text">詳細規格請見 <a href="https://github.com/ataxtrek/nextrek/issues/2590" target="_blank" class="internal-link">GitHub Issue #2590</a></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="view-mode-switcher">
+                <button class="view-mode-btn active" data-mode="slide" title="投影片模式">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                    Slide
+                </button>
+                <button class="view-mode-btn" data-mode="movie" title="影片模式">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    Movie
+                </button>
+                <button class="view-mode-btn" data-mode="scroll" title="捲動模式">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="4" y1="10" x2="20" y2="10"/></svg>
+                    Scroll
+                </button>
+            </div>
+
+            <div class="comparison-container" style="grid-template-columns: 1fr;">
+                <div class="comparison-panel">
+                    <div class="panel-header after">
+                        <span class="badge">優化</span>
+                        交易匯入總覽頁 - 隱藏 / 取消隱藏暫存區
+                    </div>
+                    <div class="panel-content slide-mode" data-base-url="https://scribehow.com/embed/__1EWssO1jTN2fJehpzteEPA">
+                        <iframe src="https://scribehow.com/embed/__1EWssO1jTN2fJehpzteEPA" allow="fullscreen"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- ========== 流程 1：使用者上傳明細 ========== -->
-        <section id="flow-1" class="flow-section active">
+        <section id="flow-1" class="flow-section">
             <div class="description-card">
                 <h2>上傳明細，差異如下</h2>
                 <div class="changes-list">
