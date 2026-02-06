@@ -1403,8 +1403,12 @@
                 <h3 style="font-size: 1.1rem; color: var(--navy); margin-bottom: 16px;">📌 區塊二：一次刪除鈕</h3>
                 <div class="changes-list">
                     <div class="change-item modified">
-                        <span class="change-tag modified">說明</span>
-                        <span class="change-text">一次刪除按鈕的差異說明（待補充）</span>
+                        <span class="change-tag modified">變更 1</span>
+                        <span class="change-text">功能相同</span>
+                    </div>
+                    <div class="change-item modified">
+                        <span class="change-tag modified">變更 2</span>
+                        <span class="change-text">位置改變，且調整為點擊「其他功能」後，才會跳出「全部刪除」，避免紅色按鈕過於吸引使用者目光</span>
                     </div>
                 </div>
             </div>
@@ -1413,8 +1417,12 @@
                 <h3 style="font-size: 1.1rem; color: var(--navy); margin-bottom: 16px;">📌 區塊三：展開、收合鈕</h3>
                 <div class="changes-list">
                     <div class="change-item modified">
-                        <span class="change-tag modified">說明</span>
-                        <span class="change-text">展開與收合按鈕的差異說明（待補充）</span>
+                        <span class="change-tag modified">變更 1</span>
+                        <span class="change-text">功能相同，但位置、樣式調整</span>
+                    </div>
+                    <div class="change-item modified">
+                        <span class="change-tag modified">變更 2</span>
+                        <span class="change-text">會記憶前次展開 / 收合狀態，記憶為使用者層級</span>
                     </div>
                 </div>
             </div>
@@ -1423,8 +1431,25 @@
                 <h3 style="font-size: 1.1rem; color: var(--navy); margin-bottom: 16px;">📌 區塊四：資料列表區</h3>
                 <div class="changes-list">
                     <div class="change-item modified">
-                        <span class="change-tag modified">說明</span>
-                        <span class="change-text">資料列表區塊的差異說明（待補充）</span>
+                        <span class="change-tag modified">變更 1</span>
+                        <span class="change-text">資料會先依據「上傳日期」被包成同一批，上方的排序設定僅會對同一批上傳日期的資料生效</span>
+                    </div>
+                    <div style="margin-left: 24px; margin-top: 8px; padding: 12px; background: var(--gray-50); border-radius: 6px; border-left: 3px solid var(--blue);">
+                        <p style="font-size: 0.85rem; color: var(--gray-700); margin-bottom: 6px;">• 上傳日期預設排序：由新到舊</p>
+                        <p style="font-size: 0.85rem; color: var(--gray-700); margin-bottom: 6px;">• 同一批上傳日期內的預設排序：收付日期由新到舊</p>
+                        <p style="font-size: 0.85rem; color: var(--gray-700);">• 同一批上傳日期區塊的右上角，會顯示該批資料總共有幾筆，目前此頁是顯示第幾筆～第幾筆（會受到篩選結果影響）</p>
+                    </div>
+                    <div class="change-item modified" style="margin-top: 12px;">
+                        <span class="change-tag modified">變更 2</span>
+                        <span class="change-text">列表中移除「資金帳戶」、「上傳日期」欄位</span>
+                    </div>
+                    <div class="change-item modified">
+                        <span class="change-tag modified">變更 3</span>
+                        <span class="change-text">以下欄位需先嘗試套用新套件，以利樣式及套件管理</span>
+                    </div>
+                    <div style="margin-left: 24px; margin-top: 8px; padding: 12px; background: var(--gray-50); border-radius: 6px; border-left: 3px solid var(--blue);">
+                        <p style="font-size: 0.85rem; color: var(--gray-700); margin-bottom: 6px;">• 收付日期、憑證日期 → 改先套用 <code style="background: var(--gray-200); padding: 2px 6px; border-radius: 4px;">flatpickr</code></p>
+                        <p style="font-size: 0.85rem; color: var(--gray-700);">• 其餘欄位使用原先套件，僅是更改樣式</p>
                     </div>
                 </div>
             </div>
@@ -1432,15 +1457,20 @@
             <div class="description-card" style="margin-top: 16px;">
                 <h3 style="font-size: 1.1rem; color: var(--navy); margin-bottom: 16px;">📌 區塊五：分頁按鈕區</h3>
                 <div class="changes-list">
-                    <div class="change-item added">
-                        <span class="change-tag added">規格</span>
-                        <span class="change-text">
-                            1. 資料會先依據「上傳日期」被包成同一批，上方的排序設定僅會對同一批上傳日期的資料生效<br>
-                            2. 上傳日期預設排序：由新到舊<br>
-                            3. 同一批上傳日期內的預設排序：收付日期由新到舊<br>
-                            4. 同一批上傳日期區塊的右上角，會顯示該批資料總共有幾筆，目前此頁是顯示第幾筆～第幾筆（會受到篩選結果影響）<br>
-                            5. 分頁依據使用者選擇的筆數呈現，選項包含 25 / 50 / 100
-                        </span>
+                    <div class="change-item modified">
+                        <span class="change-tag modified">變更 1</span>
+                        <span class="change-text">最左方新增「頁面筆數資訊」呈現：會顯示目前此頁是顯示第幾筆～第幾筆，該批資料總共有幾筆（會受到篩選結果影響）</span>
+                    </div>
+                    <div class="change-item modified">
+                        <span class="change-tag modified">變更 2</span>
+                        <span class="change-text">中間分頁功能：除樣式調整外，也讓使用者可輸入頁碼，直接跳到該頁</span>
+                    </div>
+                    <div class="change-item modified">
+                        <span class="change-tag modified">變更 3</span>
+                        <span class="change-text">最右方新增「頁面選擇筆數」功能：可選擇 25 / 50 / 100 筆，並且可記憶先前選擇筆數</span>
+                    </div>
+                    <div style="margin-left: 24px; margin-top: 8px; padding: 12px; background: var(--gray-50); border-radius: 6px; border-left: 3px solid var(--blue);">
+                        <p style="font-size: 0.85rem; color: var(--gray-700);">• 記憶筆數是使用者個人層級</p>
                     </div>
                 </div>
 
