@@ -1301,9 +1301,101 @@
                 <h3 style="font-size: 1.1rem; color: var(--navy); margin-bottom: 16px;">📌 區塊一：排序、篩選區</h3>
                 <div class="changes-list">
                     <div class="change-item modified">
-                        <span class="change-tag modified">說明</span>
-                        <span class="change-text">排序與篩選功能區塊的差異說明（待補充）</span>
+                        <span class="change-tag modified">變更 1</span>
+                        <span class="change-text">所有篩選器都改為選擇後直接觸發，不需要點擊「搜尋」再觸發</span>
                     </div>
+                    <div class="change-item modified">
+                        <span class="change-tag modified">變更 2</span>
+                        <span class="change-text">移除「資金帳戶」篩選器</span>
+                    </div>
+                    <div class="change-item modified">
+                        <span class="change-tag modified">變更 3</span>
+                        <span class="change-text">交易模式選項直接呈現：不限、收款、付款</span>
+                    </div>
+                    <div class="change-item modified">
+                        <span class="change-tag modified">變更 4</span>
+                        <span class="change-text">篩選按鈕內僅包含：搜尋附註文字、篩選收付日期、顯示無法建立的資料<br><span style="color: var(--gray-500); font-size: 0.85rem;">（原：上傳狀態的「無法建立」）</span></span>
+                    </div>
+                </div>
+
+                <!-- 分頁範例說明 -->
+                <div style="margin-top: 24px; padding: 20px; background: var(--gray-50); border-radius: 8px; border: 1px solid var(--gray-200);">
+                    <h4 style="font-size: 1rem; color: var(--gray-800); margin-bottom: 16px;">📋 暫存區分頁顯示情境範例</h4>
+
+                    <p style="font-size: 0.9rem; color: var(--gray-700); margin-bottom: 12px;"><strong>情境設定：</strong>假設使用者的暫存區內有以下資料</p>
+                    <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-bottom: 16px;">
+                        <thead>
+                            <tr style="background: var(--gray-200);">
+                                <th style="padding: 8px 12px; text-align: left; border: 1px solid var(--gray-300);">上傳日期</th>
+                                <th style="padding: 8px 12px; text-align: left; border: 1px solid var(--gray-300);">筆數</th>
+                                <th style="padding: 8px 12px; text-align: left; border: 1px solid var(--gray-300);">收付日期範圍</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 8px 12px; border: 1px solid var(--gray-300);">2025-02-06</td>
+                                <td style="padding: 8px 12px; border: 1px solid var(--gray-300);">30 筆</td>
+                                <td style="padding: 8px 12px; border: 1px solid var(--gray-300);">2025-01-01 ~ 2025-01-31</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px 12px; border: 1px solid var(--gray-300);">2025-02-03</td>
+                                <td style="padding: 8px 12px; border: 1px solid var(--gray-300);">45 筆</td>
+                                <td style="padding: 8px 12px; border: 1px solid var(--gray-300);">2024-12-01 ~ 2024-12-31</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px 12px; border: 1px solid var(--gray-300);">2025-01-28</td>
+                                <td style="padding: 8px 12px; border: 1px solid var(--gray-300);">60 筆</td>
+                                <td style="padding: 8px 12px; border: 1px solid var(--gray-300);">2024-11-01 ~ 2024-11-30</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p style="font-size: 0.85rem; color: var(--gray-600); margin-bottom: 20px;"><strong>總計：135 筆資料</strong></p>
+
+                    <h5 style="font-size: 0.95rem; color: var(--gray-800); margin-bottom: 12px;">範例 1：使用者選擇每頁 25 筆</h5>
+                    <div style="background: var(--gray-900); color: var(--gray-100); padding: 16px; border-radius: 6px; font-family: monospace; font-size: 0.8rem; white-space: pre; overflow-x: auto; margin-bottom: 16px;"><strong>第 1 頁顯示：</strong>
+
+共 30 筆｜顯示 1 ~ 25 筆                    📦 上傳日期：2025-02-06
+┌─────────────────────────────────────────────────────────────┐
+│  收付日期 2025-01-31 的資料                                   │
+│  收付日期 2025-01-30 的資料                                   │
+│  ...                                                        │
+│  (共 25 筆，同批上傳日期內依收付日期由新到舊)                    │
+└─────────────────────────────────────────────────────────────┘
+
+<strong>第 2 頁顯示：</strong>
+
+共 30 筆｜顯示 26 ~ 30 筆                   📦 上傳日期：2025-02-06
+┌─────────────────────────────────────────────────────────────┐
+│  (剩餘 5 筆)                                                 │
+└─────────────────────────────────────────────────────────────┘
+
+共 45 筆｜顯示 1 ~ 20 筆                    📦 上傳日期：2025-02-03
+┌─────────────────────────────────────────────────────────────┐
+│  收付日期 2024-12-31 的資料                                   │
+│  ...                                                        │
+│  (共 20 筆，填滿此頁剩餘空間)                                  │
+└─────────────────────────────────────────────────────────────┘</div>
+
+                    <h5 style="font-size: 0.95rem; color: var(--gray-800); margin-bottom: 12px;">範例 2：使用者套用篩選條件後</h5>
+                    <p style="font-size: 0.85rem; color: var(--gray-700); margin-bottom: 8px;">假設使用者篩選「附註說明 包含 "報銷"」，篩選後各批次剩餘：8 筆、12 筆、5 筆</p>
+                    <div style="background: var(--gray-900); color: var(--gray-100); padding: 16px; border-radius: 6px; font-family: monospace; font-size: 0.8rem; white-space: pre; overflow-x: auto;"><strong>選擇每頁 25 筆，第 1 頁顯示：</strong>
+
+共 8 筆｜顯示 1 ~ 8 筆                      📦 上傳日期：2025-02-06
+┌─────────────────────────────────────────────────────────────┐
+│  (8 筆附註說明包含「報銷」的資料)                               │
+└─────────────────────────────────────────────────────────────┘
+
+共 12 筆｜顯示 1 ~ 12 筆                    📦 上傳日期：2025-02-03
+┌─────────────────────────────────────────────────────────────┐
+│  (12 筆附註說明包含「報銷」的資料)                              │
+└─────────────────────────────────────────────────────────────┘
+
+共 5 筆｜顯示 1 ~ 5 筆                      📦 上傳日期：2025-01-28
+┌─────────────────────────────────────────────────────────────┐
+│  (5 筆附註說明包含「報銷」的資料)                               │
+└─────────────────────────────────────────────────────────────┘
+
+<em style="color: var(--gray-400);">(全部 25 筆在同一頁顯示完畢)</em></div>
                 </div>
             </div>
 
