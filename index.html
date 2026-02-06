@@ -1500,9 +1500,11 @@
     </div>
 
     <script>
-        // Password Protection
+        // Password Protection with SHA-256 + Salt
         (function() {
-            const CORRECT_PASSWORD = 'nextrek2025';  // 設定密碼
+            // 密碼雜湊值（SHA-256 + Salt）- 原始密碼已不可見
+            const PASSWORD_HASH = 'a292c8c0b1e283e419f42c4c11e05483500106e2f81639bcf5b04c9f79883cd4';
+            const SALT = 'blutoo_flow_2025_';
             const STORAGE_KEY = 'flow_comparison_auth';
 
             const overlay = document.getElementById('passwordOverlay');
@@ -1510,6 +1512,15 @@
             const submitBtn = document.getElementById('passwordSubmit');
             const errorMsg = document.getElementById('passwordError');
             const protectedElements = document.querySelectorAll('.content-protected');
+
+            // SHA-256 雜湊函數
+            async function hashPassword(password) {
+                const encoder = new TextEncoder();
+                const data = encoder.encode(SALT + password);
+                const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+                const hashArray = Array.from(new Uint8Array(hashBuffer));
+                return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+            }
 
             // Check if already authenticated
             if (sessionStorage.getItem(STORAGE_KEY) === 'true') {
@@ -1529,8 +1540,9 @@
                 sessionStorage.setItem(STORAGE_KEY, 'true');
             }
 
-            function validatePassword() {
-                if (input.value === CORRECT_PASSWORD) {
+            async function validatePassword() {
+                const inputHash = await hashPassword(input.value);
+                if (inputHash === PASSWORD_HASH) {
                     unlockContent();
                 } else {
                     input.classList.add('error');
