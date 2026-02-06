@@ -1255,15 +1255,192 @@
                 <h2>交易匯入頁｜現況與改版後區塊比較</h2>
                 <div class="changes-list">
                     <div class="change-item added">
-                        <p class="change-text">下圖為交易匯入頁的現況與改版後的區塊比較說明</p>
+                        <p class="change-text">以下為交易匯入頁（暫存區）的現況與改版後的區塊比較說明</p>
                     </div>
                 </div>
             </div>
 
-            <div class="single-image-container">
-                <div class="large-image-item">
+            <!-- 改版前 vs 改版後 圖片對比 -->
+            <div class="comparison-container">
+                <div class="comparison-panel">
+                    <div class="panel-header before">
+                        <span class="badge">現況</span>
+                        改版前
+                    </div>
+                    <div class="panel-content" style="padding: 16px;">
+                        <div class="image-placeholder" style="min-height: 300px; display: flex; align-items: center; justify-content: center; background: var(--gray-100); border-radius: 8px;">
+                            <img src="images/before-staging.png" alt="改版前暫存區" style="max-width: 100%; height: auto; border-radius: 8px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div style="display: none; flex-direction: column; align-items: center; color: var(--gray-500);">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                                <span style="margin-top: 8px;">before-staging.png</span>
+                                <span style="font-size: 0.8rem;">請放置圖片至 images 資料夾</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="comparison-panel">
+                    <div class="panel-header after">
+                        <span class="badge">優化</span>
+                        改版後
+                    </div>
+                    <div class="panel-content" style="padding: 16px;">
+                        <div class="image-placeholder" style="min-height: 300px; display: flex; align-items: center; justify-content: center; background: var(--gray-100); border-radius: 8px;">
+                            <img src="images/after-staging.png" alt="改版後暫存區" style="max-width: 100%; height: auto; border-radius: 8px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div style="display: none; flex-direction: column; align-items: center; color: var(--gray-500);">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                                <span style="margin-top: 8px;">after-staging.png</span>
+                                <span style="font-size: 0.8rem;">請放置圖片至 images 資料夾</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 區塊說明 -->
+            <div class="description-card" style="margin-top: 32px;">
+                <h3 style="font-size: 1.1rem; color: var(--navy); margin-bottom: 16px;">📌 區塊一：排序、篩選區</h3>
+                <div class="changes-list">
+                    <div class="change-item modified">
+                        <span class="change-tag modified">說明</span>
+                        <span class="change-text">排序與篩選功能區塊的差異說明（待補充）</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="description-card" style="margin-top: 16px;">
+                <h3 style="font-size: 1.1rem; color: var(--navy); margin-bottom: 16px;">📌 區塊二：一次刪除鈕</h3>
+                <div class="changes-list">
+                    <div class="change-item modified">
+                        <span class="change-tag modified">說明</span>
+                        <span class="change-text">一次刪除按鈕的差異說明（待補充）</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="description-card" style="margin-top: 16px;">
+                <h3 style="font-size: 1.1rem; color: var(--navy); margin-bottom: 16px;">📌 區塊三：展開、收合鈕</h3>
+                <div class="changes-list">
+                    <div class="change-item modified">
+                        <span class="change-tag modified">說明</span>
+                        <span class="change-text">展開與收合按鈕的差異說明（待補充）</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="description-card" style="margin-top: 16px;">
+                <h3 style="font-size: 1.1rem; color: var(--navy); margin-bottom: 16px;">📌 區塊四：資料列表區</h3>
+                <div class="changes-list">
+                    <div class="change-item modified">
+                        <span class="change-tag modified">說明</span>
+                        <span class="change-text">資料列表區塊的差異說明（待補充）</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="description-card" style="margin-top: 16px;">
+                <h3 style="font-size: 1.1rem; color: var(--navy); margin-bottom: 16px;">📌 區塊五：分頁按鈕區</h3>
+                <div class="changes-list">
+                    <div class="change-item added">
+                        <span class="change-tag added">規格</span>
+                        <span class="change-text">
+                            1. 資料會先依據「上傳日期」被包成同一批，上方的排序設定僅會對同一批上傳日期的資料生效<br>
+                            2. 上傳日期預設排序：由新到舊<br>
+                            3. 同一批上傳日期內的預設排序：收付日期由新到舊<br>
+                            4. 同一批上傳日期區塊的右上角，會顯示該批資料總共有幾筆，目前此頁是顯示第幾筆～第幾筆（會受到篩選結果影響）<br>
+                            5. 分頁依據使用者選擇的筆數呈現，選項包含 25 / 50 / 100
+                        </span>
+                    </div>
+                </div>
+
+                <!-- 分頁範例說明 -->
+                <div style="margin-top: 20px; padding: 20px; background: var(--gray-50); border-radius: 8px; border: 1px solid var(--gray-200);">
+                    <h4 style="font-size: 1rem; color: var(--gray-800); margin-bottom: 16px;">📋 分頁顯示情境範例</h4>
+
+                    <p style="font-size: 0.9rem; color: var(--gray-700); margin-bottom: 12px;"><strong>情境設定：</strong>假設使用者的暫存區內有以下資料</p>
+                    <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-bottom: 16px;">
+                        <thead>
+                            <tr style="background: var(--gray-200);">
+                                <th style="padding: 8px 12px; text-align: left; border: 1px solid var(--gray-300);">上傳日期</th>
+                                <th style="padding: 8px 12px; text-align: left; border: 1px solid var(--gray-300);">筆數</th>
+                                <th style="padding: 8px 12px; text-align: left; border: 1px solid var(--gray-300);">收付日期範圍</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 8px 12px; border: 1px solid var(--gray-300);">2025-02-06</td>
+                                <td style="padding: 8px 12px; border: 1px solid var(--gray-300);">30 筆</td>
+                                <td style="padding: 8px 12px; border: 1px solid var(--gray-300);">2025-01-01 ~ 2025-01-31</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px 12px; border: 1px solid var(--gray-300);">2025-02-03</td>
+                                <td style="padding: 8px 12px; border: 1px solid var(--gray-300);">45 筆</td>
+                                <td style="padding: 8px 12px; border: 1px solid var(--gray-300);">2024-12-01 ~ 2024-12-31</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px 12px; border: 1px solid var(--gray-300);">2025-01-28</td>
+                                <td style="padding: 8px 12px; border: 1px solid var(--gray-300);">60 筆</td>
+                                <td style="padding: 8px 12px; border: 1px solid var(--gray-300);">2024-11-01 ~ 2024-11-30</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p style="font-size: 0.85rem; color: var(--gray-600); margin-bottom: 20px;"><strong>總計：135 筆資料</strong></p>
+
+                    <h5 style="font-size: 0.95rem; color: var(--gray-800); margin-bottom: 12px;">範例 1：使用者選擇每頁 25 筆</h5>
+                    <div style="background: var(--gray-900); color: var(--gray-100); padding: 16px; border-radius: 6px; font-family: monospace; font-size: 0.8rem; white-space: pre; overflow-x: auto; margin-bottom: 16px;"><strong>第 1 頁顯示：</strong>
+
+共 30 筆｜顯示 1 ~ 25 筆                    📦 上傳日期：2025-02-06
+┌─────────────────────────────────────────────────────────────┐
+│  收付日期 2025-01-31 的資料                                   │
+│  收付日期 2025-01-30 的資料                                   │
+│  ...                                                        │
+│  (共 25 筆，同批上傳日期內依收付日期由新到舊)                    │
+└─────────────────────────────────────────────────────────────┘
+
+<strong>第 2 頁顯示：</strong>
+
+共 30 筆｜顯示 26 ~ 30 筆                   📦 上傳日期：2025-02-06
+┌─────────────────────────────────────────────────────────────┐
+│  (剩餘 5 筆)                                                 │
+└─────────────────────────────────────────────────────────────┘
+
+共 45 筆｜顯示 1 ~ 20 筆                    📦 上傳日期：2025-02-03
+┌─────────────────────────────────────────────────────────────┐
+│  收付日期 2024-12-31 的資料                                   │
+│  ...                                                        │
+│  (共 20 筆，填滿此頁剩餘空間)                                  │
+└─────────────────────────────────────────────────────────────┘</div>
+
+                    <h5 style="font-size: 0.95rem; color: var(--gray-800); margin-bottom: 12px;">範例 2：使用者套用篩選條件後</h5>
+                    <p style="font-size: 0.85rem; color: var(--gray-700); margin-bottom: 8px;">假設使用者篩選「附註說明 包含 "報銷"」，篩選後各批次剩餘：8 筆、12 筆、5 筆</p>
+                    <div style="background: var(--gray-900); color: var(--gray-100); padding: 16px; border-radius: 6px; font-family: monospace; font-size: 0.8rem; white-space: pre; overflow-x: auto;"><strong>選擇每頁 25 筆，第 1 頁顯示：</strong>
+
+共 8 筆｜顯示 1 ~ 8 筆                      📦 上傳日期：2025-02-06
+┌─────────────────────────────────────────────────────────────┐
+│  (8 筆附註說明包含「報銷」的資料)                               │
+└─────────────────────────────────────────────────────────────┘
+
+共 12 筆｜顯示 1 ~ 12 筆                    📦 上傳日期：2025-02-03
+┌─────────────────────────────────────────────────────────────┐
+│  (12 筆附註說明包含「報銷」的資料)                              │
+└─────────────────────────────────────────────────────────────┘
+
+共 5 筆｜顯示 1 ~ 5 筆                      📦 上傳日期：2025-01-28
+┌─────────────────────────────────────────────────────────────┐
+│  (5 筆附註說明包含「報銷」的資料)                               │
+└─────────────────────────────────────────────────────────────┘
+
+<em style="color: var(--gray-400);">(全部 25 筆在同一頁顯示完畢)</em></div>
+                </div>
+            </div>
+
+            <!-- 全部說明大圖區塊 -->
+            <div class="description-card" style="margin-top: 32px;">
+                <h3 style="font-size: 1.1rem; color: var(--navy); margin-bottom: 16px;">🖼️ 全部區塊說明大圖</h3>
+            </div>
+            <div class="single-image-container" style="margin-top: 8px;">
+                <div class="large-image-item" style="max-width: 800px; margin: 0 auto;">
                     <div class="image-placeholder">
-                        <img src="images/Frame 5 (1).png" alt="交易匯入頁區塊比較圖" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <img src="images/Frame 5 (1).png" alt="交易匯入頁區塊比較圖" style="max-height: 400px; width: auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                         <div class="image-placeholder-text" style="display: none;">交易匯入頁區塊比較圖</div>
                         <div class="image-placeholder-hint" style="display: none;">請將圖片檔案放置在 images 資料夾中</div>
                     </div>
